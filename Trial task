@@ -1,0 +1,160 @@
+Trail (Reversing Task-1)
+
+0x000055555555529c <+0>:	endbr64
+   0x00005555555552a0 <+4>:	push   rbp
+   0x00005555555552a1 <+5>:	mov    rbp,rsp
+=> 0x00005555555552a4 <+8>:	sub    rsp,0x90
+# These lines are just creating a stack frame and giving it 144 bytes space to allocate
+memory
+
+0x00005555555552ab <+15>:	mov    rax,QWORD PTR fs:0x28
+# This moves a 64bit value from a address from fs:0x28 to rax register
+
+0x00005555555552b4 <+24>:	mov    QWORD PTR [rbp-0x8],rax
+# rbp-0x8- it is basically a memory loctaion and it subtracts the the value of
+0x8 from what was in rbp and so what was stored in the rax registe is now stored there
+
+ 0x00005555555552b8 <+28>:	xor    eax,eax
+#it is doing a xor operation like a^a=0, so here eax is xoring with eax so the value
+would becime zero
+
+0x00005555555552ba <+30>:	movabs rax,0x69676f6c65726172
+# the value stored in the 0x69676f6c65726172 is moved to rax register which is 
+rarelogi
+
+0x00005555555552c4 <+40>:	mov    QWORD PTR [rbp-0x8a],rax
+# here the value stored in rax register is moving to rbp-0x8a address
+
+0x00005555555552cb <+47>:	mov    WORD PTR [rbp-0x82],0x63
+# i think in there the ascii value of 0x63 is c and it is going add to rarelogi 
+so i would become rarelogic
+
+0x00005555555552d4 <+56>:	lea    rax,[rip+0xd45] 
+# it loads the memory which at the rip+0x45 memory address to rax
+
+ 0x00005555555552db <+63>:	mov    rdi,rax
+# here rax is moved to rdi
+
+0x00005555555552de <+66>:	mov    eax,0x0
+# here we are giving eax value as 0
+
+0x00005555555552e3 <+71>:	call   0x5555555550b0 <printf@plt>
+# i think the call instruction will give the control to 0x00005555555552e3 this 
+address
+
+0x00005555555552e8 <+76>:	lea    rax,[rbp-0x80]
+# here the memory stored at rbp0x80 address is loaded to rax
+
+0x00005555555552ec <+80>:	mov    rsi,rax
+# here rax is moved to rsi
+
+0x00005555555552ef <+83>:	lea    rax,[rip+0xd3f]        # 0x555555556035
+# here the memory stored at rip=0xd3f address is loaded to rax
+# it uses the value or a string at the address and load it to rax so we can use it there
+
+0x00005555555552f6 <+90>:	mov    rdi,rax
+# here rax is moved to rdi
+
+0x00005555555552f9 <+93>:	mov    eax,0x0
+# here eax is set to 0
+
+0x00005555555552fe <+98>:	call   0x5555555550d0 <__isoc99_scanf@plt>
+# in this instruction it is calling scanf function it is likely that
+here it is wating for an input from the user
+
+0x0000555555555303 <+103>:	lea    rdx,[rbp-0x40]
+0x0000555555555307 <+107>:	lea    rcx,[rbp-0x8a]
+0x000055555555530e <+114>:	lea    rax,[rbp-0x80]
+# Here rbp-0X40 is loaded to rdx, rbp-0x8a is loaded to rcx and rbp-0x80 is 
+loaded to rax
+
+0x0000555555555312 <+118>:	mov    rsi,rcx
+0x0000555555555315 <+121>:	mov    rdi,rax
+# here rcx is moved to rsi and rax is moved to rdi
+
+0x0000555555555318 <+124>:	call   0x5555555551fe <encrypt>
+# it is basically calling the encryt fn or the address at which here it is 
+and i think it jump to the top that where it is 
+
+0x000055555555531d <+129>:	lea    rax,[rbp-0x40]
+#here rbp-0x40 is loaded to rax
+
+0x0000555555555321 <+133>:	mov    edx,0x10
+# here an hexadecimal value 16 is moved to edx a 32 bit register
+
+0x0000555555555326 <+138>:	lea    rcx,[rip+0xce3]  
+# here the memory at rip+0xce3 memory address is moved to rcx
+
+0x000055555555532d <+145>:	mov    rsi,rcx
+0x0000555555555330 <+148>:	mov    rdi,rax
+# here rcx is moved to rsi and rax is moved to rdi
+
+0x0000555555555333 <+151>:	call   0x5555555550c0 <memcmp@plt>
+# here it is calling the memcap function which in c language is used
+to compare 2 value or anthing and here i this it compares rdi and rsi 
+i think and returns 0 if both the values there are same or any postive integer
+if it is different
+
+0x0000555555555338 <+156>:	test   eax,eax
+# here it is basically testing eax with eax iself like xor operation 
+and it the values is same it return 0 or different it returns 1
+
+0x000055555555533a <+158>:	jne    0x555555555352 <main+182>
+# this line of code is based on memcmp if the memcmp vlaue is not 0 or equal 
+it will jump this 0x555555555352 memory address
+
+0x000055555555533c <+160>:	lea    rax,[rip+0xcf7]        # 0x55555555603a
+# here the memory at rip+0xcf7 address is moved to rax
+
+0x0000555555555343 <+167>:	mov    rdi,rax
+0x0000555555555346 <+170>:	mov    eax,0x0
+# here rax is moved to rdi and eax is set 0
+
+0x000055555555534b <+175>:	call   0x5555555550b0 <printf@plt>
+# here it is calling the printf function likey saying sucess or failure
+in after we inputing the password and checking it
+
+0x0000555555555350 <+180>:	jmp    0x555555555366 <main+202>
+# there i think if we put wrong password after displaying it is nah
+it will go back to the start or any address from the begining before waring up
+program
+
+0x0000555555555352 <+182>:	lea    rax,[rip+0xcf3]        # 0x55555555604c
+# here the memory at rip+0xcf3 is moved to rax
+
+0x0000555555555359 <+189>:	mov    rdi,rax
+0x000055555555535c <+192>:	mov    eax,0x0
+# here rax is moved to rdi  and eax is set 0
+
+0x0000555555555361 <+197>:	call   0x5555555550b0 <printf@plt>
+# i think this is also a sucess or failure message 
+
+0x0000555555555366 <+202>:	mov    eax,0x0
+# here eax is set to 0
+
+0x000055555555536b <+207>:	mov    rdx,QWORD PTR [rbp-0x8]
+# rbp-0x8- it is basically a memory loctaion and it subtracts the the value of
+0x8 from what was in rdx and so what was stored in the rax registe is now stored there
+
+0x000055555555536f <+211>:	sub    rdx,QWORD PTR fs:0x28
+# This moves a 64bit value from a address from fs:0x28 to rdx register
+
+0x0000555555555378 <+220>:	je     0x55555555537f <main+227>
+# here it will jump to this address if the after displaying 
+sucess or failue in the aboue prinf fn
+
+0x000055555555537a <+222>:	call   0x5555555550a0 <__stack_chk_fail@plt>
+# calling the address at this memory address
+
+0x000055555555537f <+227>:	leave
+0x0000555555555380 <+228>:	ret
+#These two instructions are used to clear the
+function stack frame and return from the function
+
+
+
+
+
+
+
+
